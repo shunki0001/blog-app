@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOG</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+</head>
+<body>
+    <%- include('header') %>
+    <main>
+        <h1>ブログ記事編集</h1>
+        <a href="/edit">キャンセル</a>
+        <ul class="list">
+            <form action="/update/<%= articles.id %>" method="post">
+                <p>タイトル</p>
+                <input type="text" name="title" value="<%= articles.title %>">
+                <p>題名</p>
+                <input type="text" name="summary" value="<%= articles.summary %>">
+                <p>本文</p>
+                <!-- textareaだと反映されない-->>
+                <input type="text" name="content" value="<%= articles.content %>">
+                <p>カテゴリー</p>
+                <p>「all」,「limited」を入力して下さい</p>
+                <input type="text" name="category" value="<%= articles.category %>">
+                <input type="submit" value="編集する">
+            </form>
+        </ul>
+    </main>
+</body>
+</html>

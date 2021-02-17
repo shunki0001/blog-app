@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOG</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+</head>
+<body>
+    <%- include('header') %>
+    <div class="sign">
+        <div class="container">
+            <div class="panel">
+                <h2>新規作成</h2>
+                <% if (errors.length > 0) { %>
+                    <ul class="errors">
+                        <% errors.forEach(error => { %>
+                            <li><%= error %></li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+                <form action="/create" method="post">
+                    <p>タイトル</p>
+                <input type="text" name="title">
+                <p>題名</p>
+                <input type="text" name="summary">
+                <p>本文</p>
+                <textarea type="text" name="content"></textarea>
+                <p>カテゴリー</p>
+                <p>「all」を入力すると全てのユーザーに、「limited」を入力すると会員ユーザーのみ閲覧可</p>
+                <input type="text" name="category">
+                <input type="submit" value="作成する">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
